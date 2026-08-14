@@ -22,9 +22,18 @@ export async function generateMetadata({ params }) {
     return { title: "Project not found" };
   }
 
+  const description = detail.overview ?? project.description;
+
   return {
     title: `${project.name} | Mahfuj Mahtab Mohot`,
-    description: detail.description,
+    description,
+    openGraph: {
+      title: project.name,
+      description,
+      images: detail.heroImage
+        ? [{ url: detail.heroImage, alt: detail.heroImageAlt }]
+        : undefined,
+    },
   };
 }
 

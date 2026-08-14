@@ -14,8 +14,7 @@ export function AboutSection() {
             About Me
           </h2>
           <p className="max-w-2xl text-muted-foreground">
-            Straight answers—no life story. Here is what matters if you are
-            considering working together.
+            A quick look at my background, what I build, and how I work.
           </p>
         </SectionReveal>
         <StaggerReveal className="grid gap-4 sm:grid-cols-2 sm:gap-6">

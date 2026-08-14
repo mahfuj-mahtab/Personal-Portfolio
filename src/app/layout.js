@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Mahfuj Mahtab Mohot | Software Engineer",
+  title: "Mahfuj Mahtab Mohot | Junior Full Stack Engineer",
   description:
-    "Personal portfolio of Mahfuj Mahtab Mohot — software engineer building modern web experiences.",
+    "Portfolio of Mahfuj Mahtab Mohot — full-stack engineer building multi-tenant SaaS, HRMS systems, and EdTech products with Django, Next.js, and AWS.",
 };
 
 export default function RootLayout({ children }) {

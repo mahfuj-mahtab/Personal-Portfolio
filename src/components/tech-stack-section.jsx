@@ -19,6 +19,32 @@ export function TechStackSection() {
             {techStack.description}
           </p>
         </SectionReveal>
+
+        {techStack.categories?.length ? (
+          <SectionReveal className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {techStack.categories.map((category) => (
+              <div
+                key={category.name}
+                className="rounded-xl border border-border/60 bg-card/40 p-5 shadow-sm"
+              >
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-primary">
+                  {category.name}
+                </h3>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {category.items.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-lg border border-border/60 bg-muted/50 px-2.5 py-0.5 text-sm font-medium"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </SectionReveal>
+        ) : null}
+
         <SectionReveal>
           <div className="relative -mx-4 space-y-4 sm:-mx-6">
             {techStack.rows.map((row) => (

@@ -24,9 +24,8 @@ export function SiteFooter() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={siteConfig.cv.href}
+              download={siteConfig.cv.download}
               className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
-              target="_blank"
-              rel="noopener noreferrer"
             >
               {siteConfig.cv.label}
             </a>

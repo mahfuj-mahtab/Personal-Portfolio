@@ -2,7 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, GitBranch } from "lucide-react";
 
+import { ProjectKindBadge } from "@/components/project-kind-badge";
 import { buttonVariants } from "@/components/ui/button";
+import {
+  getScreenshotDimensions,
+  isNativeScreenshot,
+  PROJECT_SCREENSHOT_QUALITY,
+} from "@/lib/project-images";
 import { cn } from "@/lib/utils";
 
 export function ProjectCard({ project, imageOnRight }) {
@@ -15,15 +21,30 @@ export function ProjectCard({ project, imageOnRight }) {
         imageOnRight && "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1",
       )}
     >
-      <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border/60 bg-muted">
+      <div className="relative w-full overflow-hidden rounded-xl border border-border/60 bg-muted">
         {hasImage ? (
-          <Image
-            src={project.image}
-            alt={project.imageAlt ?? project.name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+          isNativeScreenshot(project.image) ? (
+            <Image
+              src={project.image}
+              alt={project.imageAlt ?? project.name}
+              width={getScreenshotDimensions(project.image).width}
+              height={getScreenshotDimensions(project.image).height}
+              className="w-full h-auto"
+              quality={PROJECT_SCREENSHOT_QUALITY}
+              sizes="(max-width: 1024px) 100vw, 576px"
+            />
+          ) : (
+            <div className="relative aspect-video w-full">
+              <Image
+                src={project.image}
+                alt={project.imageAlt ?? project.name}
+                fill
+                className="object-cover"
+                quality={PROJECT_SCREENSHOT_QUALITY}
+                sizes="(max-width: 1024px) 100vw, 576px"
+              />
+            </div>
+          )
         ) : (
           <div
             className="flex h-full w-full items-center justify-center bg-gradient-to-br from-muted to-muted/40"
@@ -36,9 +57,15 @@ export function ProjectCard({ project, imageOnRight }) {
         )}
       </div>
       <div className="flex flex-col gap-4">
-        <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
-          {project.name}
-        </h3>
+        <div className="flex flex-wrap items-center gap-3">
+          <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
+            {project.name}
+          </h3>
+          <ProjectKindBadge kind={project.kind} />
+        </div>
+        {project.period ? (
+          <p className="text-sm font-medium text-primary">{project.period}</p>
+        ) : null}
         <p className="leading-relaxed text-muted-foreground">
           {project.description}
         </p>

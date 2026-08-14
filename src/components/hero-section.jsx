@@ -2,9 +2,9 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-import { SpotlightText } from "@/components/spotlight-text";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
+import { getYoutubeEmbedUrl } from "@/lib/youtube";
 import { motionEase, scrollReveal } from "@/lib/motion";
 import { socialIcons } from "@/lib/social-icons";
 import { cn } from "@/lib/utils";
@@ -24,6 +24,7 @@ const heroItem = {
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
+  const videoEmbedUrl = getYoutubeEmbedUrl(siteConfig.heroVideo);
 
   return (
     <section
@@ -53,20 +54,16 @@ export function HeroSection() {
                 initial={reduceMotion ? false : "hidden"}
                 animate={reduceMotion ? undefined : "visible"}
               >
-                <SpotlightText className="w-full">
-                  {siteConfig.name}
-                </SpotlightText>
+                {siteConfig.name}
               </motion.h1>
               <motion.p
-                className="text-xl font-medium sm:text-2xl"
+                className="text-xl font-medium text-primary sm:text-2xl"
                 custom={1}
                 variants={heroItem}
                 initial={reduceMotion ? false : "hidden"}
                 animate={reduceMotion ? undefined : "visible"}
               >
-                <SpotlightText variant="primary" className="w-full">
-                  {siteConfig.role}
-                </SpotlightText>
+                {siteConfig.role}
               </motion.p>
               <motion.p
                 className="max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg"
@@ -87,9 +84,8 @@ export function HeroSection() {
             >
               <a
                 href={siteConfig.cv.href}
+                download={siteConfig.cv.download}
                 className={cn(buttonVariants({ variant: "default", size: "lg" }))}
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 {siteConfig.cv.label}
               </a>
@@ -122,19 +118,32 @@ export function HeroSection() {
             </motion.div>
           </div>
           <motion.div
-            className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-muted shadow-xl ring-1 ring-primary/20 transition-transform duration-500 hover:scale-[1.01]"
+            className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-muted shadow-xl ring-1 ring-primary/20"
             initial={reduceMotion ? false : scrollReveal.hidden}
             animate={reduceMotion ? undefined : scrollReveal.visible}
             transition={{ ...scrollReveal.transition, delay: 0.35 }}
           >
-            <iframe
-              className="absolute inset-0 h-full w-full"
-              src={siteConfig.heroVideo}
-              title="Featured video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              loading="lazy"
-            />
+            {videoEmbedUrl ? (
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={videoEmbedUrl}
+                title="Intro video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+              />
+            ) : (
+              <div
+                className="flex h-full min-h-[12rem] flex-col items-center justify-center gap-2 bg-gradient-to-br from-muted to-muted/40 p-6 text-center"
+              >
+                <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+                  Intro Video
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  My intro video will be here soon.
+                </p>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
