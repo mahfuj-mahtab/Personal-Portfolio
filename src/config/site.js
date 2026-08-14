@@ -388,6 +388,25 @@ export const siteConfig = {
           ],
           skills: ["Python", "Django", "DRF"],
         },
+        {
+          id: "dreamers-academy",
+          title: "Coding Instructor",
+          company: "Dreamers Academy",
+          employmentType: "Remote",
+          location: "Remote",
+          start: "Dec 2023",
+          end: "Feb 2025",
+          summary:
+            "Taught coding fundamentals to students remotely — Python, JavaScript, and web design.",
+          highlights: [
+            "Delivered live coding lessons on Python programming for beginners and intermediate learners.",
+            "Taught JavaScript fundamentals including variables, functions, DOM manipulation, and basic logic.",
+            "Guided students through web design concepts — HTML, CSS, layout, and responsive pages.",
+            "Prepared lesson materials, coding exercises, and hands-on practice for each session.",
+            "Supported students with debugging, code reviews, and project feedback.",
+          ],
+          skills: ["Python", "JavaScript", "HTML", "CSS", "Web Design"],
+        },
       ],
     },
     products: {
