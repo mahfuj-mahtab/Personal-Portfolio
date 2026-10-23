@@ -47,33 +47,17 @@ export function HeroSection() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div className="flex flex-col gap-6">
             <div className="space-y-4">
-              <motion.h1
-                className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
-                custom={0}
-                variants={heroItem}
-                initial={reduceMotion ? false : "hidden"}
-                animate={reduceMotion ? undefined : "visible"}
-              >
-                {siteConfig.name}
-              </motion.h1>
-              <motion.p
-                className="text-xl font-medium text-primary sm:text-2xl"
-                custom={1}
-                variants={heroItem}
-                initial={reduceMotion ? false : "hidden"}
-                animate={reduceMotion ? undefined : "visible"}
-              >
-                {siteConfig.role}
-              </motion.p>
-              <motion.p
-                className="max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg"
-                custom={2}
-                variants={heroItem}
-                initial={reduceMotion ? false : "hidden"}
-                animate={reduceMotion ? undefined : "visible"}
-              >
+              <h1 className="space-y-4">
+                <span className="block text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+                  {siteConfig.name}
+                </span>
+                <span className="block text-xl font-medium text-primary sm:text-2xl">
+                  {siteConfig.role}
+                </span>
+              </h1>
+              <p className="max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
                 {siteConfig.tagline}
-              </motion.p>
+              </p>
             </div>
             <motion.div
               className="flex flex-wrap items-center gap-3"

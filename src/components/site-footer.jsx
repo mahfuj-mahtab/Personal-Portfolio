@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { SectionReveal } from "@/components/section-reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
@@ -20,6 +22,17 @@ export function SiteFooter() {
             <p className="text-xs text-muted-foreground">
               © {year} {siteConfig.name}. All rights reserved.
             </p>
+            <nav aria-label="Services" className="flex flex-wrap gap-x-4 gap-y-1 pt-2">
+              {siteConfig.services.items.map((service) => (
+                <Link
+                  key={service.id}
+                  href={`/services/${service.id}`}
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {service.name}
+                </Link>
+              ))}
+            </nav>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <a

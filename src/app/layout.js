@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { siteConfig } from "@/config/site";
 
 import "./globals.css";
 
@@ -15,9 +16,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Mahfuj Mahtab Mohot | Junior Full Stack Engineer",
-  description:
-    "Portfolio of Mahfuj Mahtab Mohot — full-stack engineer building multi-tenant SaaS, HRMS systems, and EdTech products with Django, Next.js, and AWS.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    creator: siteConfig.twitter,
+  },
 };
 
 export default function RootLayout({ children }) {

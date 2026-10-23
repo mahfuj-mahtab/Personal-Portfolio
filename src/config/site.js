@@ -1,7 +1,12 @@
 export const siteConfig = {
+  url: "https://mahfujmohot.com",
   brand: "Mohot",
   name: "Mahfuj Mahtab Mohot",
   role: "SaaS MVP Developer",
+  title: "Mahfuj Mahtab Mohot | SaaS MVP Developer",
+  description:
+    "I help startup founders turn SaaS ideas into production-ready MVPs using Python, Django/FastAPI, Node.js/Express, Next.js, and AI integrations. Based in Dhaka, Bangladesh.",
+  twitter: "@MahfujMohot",
   tagline:
     "I help startup founders turn SaaS ideas into production-ready MVPs using Python, Django/FastAPI, Node.js/Express, Next.js, and AI integrations.",
   about: [
@@ -113,6 +118,26 @@ export const siteConfig = {
           label: "Discuss your MVP",
           href: "mailto:mohotmahfuj@gmail.com?subject=SaaS%20MVP%20Development%20Inquiry",
         },
+        seo: {
+          lead: "I take your product idea from concept to a production-ready SaaS MVP. This is for early-stage founders who need authentication, multi-tenancy, APIs, and deployment — not a prototype. You bring the idea and business knowledge; I handle the technical execution.",
+          faqs: [
+            {
+              question: "Who is SaaS MVP development for?",
+              answer:
+                "Early-stage startup and SaaS founders (1–10 people, idea to MVP stage). You bring the idea and business knowledge; I handle the technical execution.",
+            },
+            {
+              question: "What does a SaaS MVP include?",
+              answer:
+                "Authentication and user management, multi-tenancy and RBAC, admin dashboards, REST APIs and database architecture, payments, email/SMS and file uploads, background jobs and AI integrations, and deployment.",
+            },
+            {
+              question: "What does SaaS MVP development cost?",
+              answer: "$500 – $3,000+ depending on scope.",
+            },
+          ],
+          relatedProjects: ["champkoder", "storesetup", "weekwins", "smart-hiring"],
+        },
       },
       {
         id: "ai-integration",
@@ -135,6 +160,26 @@ export const siteConfig = {
         cta: {
           label: "Discuss AI integration",
           href: "mailto:mohotmahfuj@gmail.com?subject=AI%20Integration%20Inquiry",
+        },
+        seo: {
+          lead: "Add AI capabilities to your existing SaaS or web application — chatbots and assistants, document processing, CV and resume analysis, RAG systems, AI-powered search, workflow automation, and OpenAI, Claude, or Gemini integrations.",
+          faqs: [
+            {
+              question: "Who is AI integration for?",
+              answer:
+                "Existing SaaS founders, agencies, and startup teams that already have a product and want AI added to it.",
+            },
+            {
+              question: "What AI work is included?",
+              answer:
+                "AI chatbots and assistants, document processing, CV/resume analysis, RAG systems, OpenAI/Claude/Gemini integrations, AI-powered search, and workflow automation.",
+            },
+            {
+              question: "How is AI integration priced?",
+              answer: "Smaller scoped projects — quote on request.",
+            },
+          ],
+          relatedProjects: ["storesetup"],
         },
       },
       {
@@ -165,6 +210,27 @@ export const siteConfig = {
         cta: {
           label: "Discuss backend work",
           href: "mailto:mohotmahfuj@gmail.com?subject=Backend%2FAPI%20Development%20Inquiry",
+        },
+        seo: {
+          lead: "Scalable Django, FastAPI, or Express backends and REST APIs when you don't need a full MVP. Work covers API design, database modeling, authentication, background jobs, third-party integrations, and deployment.",
+          faqs: [
+            {
+              question: "Who is backend and API development for?",
+              answer:
+                "Startups, agencies, and frontend teams that need a backend and do not need a full SaaS MVP.",
+            },
+            {
+              question: "What does backend work include?",
+              answer:
+                "API design, database modeling, authentication, background jobs, third-party integrations, and deployment.",
+            },
+            {
+              question: "Which technologies do you use?",
+              answer:
+                "Django/DRF, FastAPI, Node.js/Express, PostgreSQL, Redis, and Celery.",
+            },
+          ],
+          relatedProjects: ["smart-hiring", "storesetup"],
         },
       },
     ],

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Brain, Mail, Rocket, Server } from "lucide-react";
 
 import {
@@ -89,8 +90,17 @@ function ServiceCard({ service }) {
         </p>
       ) : null}
 
-      {service.cta ? (
-        <div className="mt-auto pt-5">
+      <div className="mt-auto flex flex-col gap-2 pt-5 sm:flex-row sm:flex-wrap">
+        <Link
+          href={`/services/${service.id}`}
+          className={cn(
+            buttonVariants({ variant: "outline", size: "sm" }),
+            "w-full sm:w-auto",
+          )}
+        >
+          Learn more
+        </Link>
+        {service.cta ? (
           <a
             href={service.cta.href}
             className={cn(
@@ -104,8 +114,8 @@ function ServiceCard({ service }) {
             <Mail className="size-4" data-icon="inline-start" />
             {service.cta.label}
           </a>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </article>
   );
 }

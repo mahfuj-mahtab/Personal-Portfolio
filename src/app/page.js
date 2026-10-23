@@ -8,10 +8,22 @@ import { ServicesSection } from "@/components/services-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TechStackSection } from "@/components/tech-stack-section";
+import { siteConfig } from "@/config/site";
+import { homeJsonLd, JsonLd } from "@/lib/seo";
+
+export const metadata = {
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    url: siteConfig.url,
+  },
+};
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={homeJsonLd()} />
       <SiteHeader />
       <main>
         <HeroSection />
